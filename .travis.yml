@@ -32,14 +32,12 @@ jobs:
       script: tox -e flake8
     # --
     - stage: deploy
-      python: 3.7
       deploy:
         provider: pypi
-        distributions: sdist bdist_wheel
-        user: thomasjahoda
+        distributions: "sdist bdist_wheel"
+        username: thomasjahoda
         password:
           secure: SlRp6+F9avvok86jXihucdpECc5WibA0MOr7jJxzXfAcq404GefhVOOrvmeVG2U3Q4gTBzp1R0dYp/++Ki9G9vK9znyTQG5U1Nfvqpv4xqgCrKrvKlgWVnkUAhuk1OWnY9az30UwY+z++Ije2m/NplsyS6vbkeIxgubs/lHv7tx9srLtbmhwG4if3vHFV3JXdBZuDgbTj48qdsClnC9GbOUTV8ccRg6TKyP2S4HXWZ6BJfo70j0OV/zbXX5GopO25RtRXHRcCTMp1yGWkqqeoyLdBD8mV6q9goHB/qC6M1J1p1Y52uuoF6vJJhm0FzuZ1AYA1bRkkDQTC78dxGd5vOk/JRDbUyI4p+v28jiVEzB0qjvVVB05/d6Oeb1y7KPhr8ziQ0w/CxP3v+g/eonlOALAGdc+e0usYkNueHFv+P5tVz+I7SKODEWGFdZh7jgstc4n4a0eRPiXmRUAfGb039QspaA9liqA6YiY+lwVRxkwm17i+g2741aqKYWgGirNYiPUHewgPHyrIpmwHaoz19sF0LB2xr4wjxuXkinzFonx5OYc6XJWPsI95pgAl0b/Uj+5lPCjy6fjRNPC6sdmq1EuP8UY8AU3sdh8NNMNMdFwykMLx6HEIBxAVOV7R+jgp1e3IW5W7ttqyi2c4Q4dg+eaIH5G1YDmhOrN4feR8DE=
         on:
           tags: true
           repo: thomasjahoda/cookiecutter_project_upgrader
-          python: 3.7

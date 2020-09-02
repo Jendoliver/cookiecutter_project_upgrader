@@ -58,7 +58,7 @@ Options:
                                   interactive, otherwise false.
 
   -e, --exclude TEXT              Git pathspecs to exclude from the update
-                                  commit, e.g. -e "*.py" -e "tests/".
+                                  commit, e.g. -e "\*.py" -e "tests/".
 
   -h, --help                      Show this message and exit.
 
