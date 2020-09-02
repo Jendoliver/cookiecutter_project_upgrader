@@ -9,7 +9,7 @@ runtime_requirements = [
     'click>=7.0',
 ]
 development_requirements = [
-    'pytest-cookies>=0.3.0',
+    'pytest-cookies~=0.3.0',
     # general setup requirements
     'pip>=19.0.2',
     'bumpversion>=0.5.3',
@@ -21,7 +21,7 @@ development_requirements = [
     'Sphinx>=1.8.3',
     'twine>=1.12.1',
     'pluggy>=0.7.0',
-    'mypy>=0.650',
+    'mypy>=0.782',
     'pytest>=3.8.2',
     'pytest-runner>=4.2',
     'pytest-mock>=1.10.1',
@@ -58,6 +58,6 @@ setup(
     packages=find_packages(include=['cookiecutter_project_upgrader', 'cookiecutter_project_upgrader.*']),
     test_suite='tests',
     url='https://github.com/thomasjahoda/cookiecutter_project_upgrader',
-    version='1.1.0',
+    version='1.2.0',
     zip_safe=False,
 )
