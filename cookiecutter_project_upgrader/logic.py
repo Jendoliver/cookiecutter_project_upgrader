@@ -46,7 +46,8 @@ def _git_repository_has_local_changes(git_repository: Path):
 
 
 def update_project_template_branch(context: MutableMapping[str, str], project_directory: str, branch: str,
-                                   merge_now: Optional[bool], push_template_branch_changes: Optional[bool],
+                                   upgrade_branch: Optional[str], merge_now: Optional[bool],
+                                   push_template_branch_changes: Optional[bool],
                                    exclude_pathspecs: Tuple[str, ...], interactive: bool):
     """Update template branch from a template url"""
     template_url = context['_template']
@@ -76,12 +77,15 @@ def update_project_template_branch(context: MutableMapping[str, str], project_di
     with _TemporaryGitWorktreeDirectory(tmp_git_worktree_directory, repo=project_directory, branch=branch):
         # update the template
         click.echo(f"Updating template in branch {branch} using extra_context={context}")
+        if upgrade_branch is not None:
+            click.echo(f"Updating from project remote branch={upgrade_branch}")
         click.echo("===========================================")
         cookiecutter(template_url,
                      no_input=True,
                      extra_context=context,
                      overwrite_if_exists=True,
-                     output_dir=tmp_directory)
+                     output_dir=tmp_directory,
+                     checkout=upgrade_branch)
         click.echo("===========================================")
         click.echo("Finished generating project from template.")
 

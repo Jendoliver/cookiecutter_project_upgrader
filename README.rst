@@ -45,6 +45,11 @@ Usage: cookiecutter_project_upgrader [OPTIONS]
 Options:
   -c, --context-file PATH         Default: docs/cookiecutter_input.json
   -b, --branch TEXT               Default: cookiecutter-template
+  -u, --upgrade-branch TEXT       Optional branch name of cookiecutter
+                                  template to checkout before upgrading.
+                                  
+  -f, --zip-file TEXT             Zip file Path/URL for Cookiecutter templates.                                  
+
   -i, --interactive               Enter interactive mode. Default behaviour:
                                   skip questions, use defaults.
 
