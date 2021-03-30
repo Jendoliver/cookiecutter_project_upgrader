@@ -59,7 +59,7 @@ flake8: ## check style with flake8 (lint)
 	flake8 cookiecutter_project_upgrader tests --max-line-length=120
 
 mypy: ## check types with mypy
-	mypy cookiecutter_project_upgrader tests/*.py
+	mypy cookiecutter_project_upgrader tests/__init__.py  tests/files.py  tests/test_cli.py  tests/test_logic.py  tests/tmp_files.py
 
 test: ## run all tests with the current python env
 	pytest
