@@ -1,3 +1,3 @@
+# flake8: noqa:F401
 """Top-level package for Cookiecutter Project Upgrader."""
-
-__version__ = '1.2.0'
+from cookiecutter_project_upgrader._version import version as __version__

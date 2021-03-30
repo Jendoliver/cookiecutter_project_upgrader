@@ -1,5 +1,5 @@
 from pathlib import Path
-from setuptools import find_packages, setup
+from setuptools import setup
 
 readme = Path('README.rst').read_text(encoding="utf-8")
 history = Path('docs/history.rst').read_text(encoding="utf-8")
@@ -55,9 +55,10 @@ setup(
     include_package_data=True,
     keywords='cookiecutter_project_upgrader',
     name='cookiecutter_project_upgrader',
-    packages=find_packages(include=['cookiecutter_project_upgrader', 'cookiecutter_project_upgrader.*']),
+    setup_requires=['setuptools_scm'],
+    use_scm_version={'write_to': 'cookiecutter_project_upgrader/_version.py'},
+    packages=['cookiecutter_project_upgrader'],
     test_suite='tests',
     url='https://github.com/thomasjahoda/cookiecutter_project_upgrader',
-    version='1.2.0',
     zip_safe=False,
 )
