@@ -72,14 +72,15 @@ Options:
 Preconditions
 -------------
 
-The tool requires a JSON file with context that matches the existing service.
-This file can be created through Cookiecutter with the following contents:
+The tool requires a JSON file with the cookiecutter context to exist.
+The name of this file is specified by the `--context-file` parameter.
+This file can and should be automatically created by Cookiecutter using a file in the project template with the following contents:
 ::
 
     {{ cookiecutter | jsonify }}
 
 
-You will need a recent version of git for this to work. (it needs --no-checkout on git worktree)
+Git version 2.9 or later is required. (it needs --no-checkout on git worktree)
 
 
 Auto-Completion
@@ -87,8 +88,8 @@ Auto-Completion
 The script uses the `Click toolkit <https://github.com/pallets/click>`_.
 Because the script uses Click, you can enable completion for Zsh and Bash.
 
-For Bash, add the following to your `.bashrc` or some other profile initialization file.
-`eval "$(_COOKIECUTTER_PROJECT_UPGRADER_COMPLETE=source cookiecutter_project_upgrader)"`
+For Bash, add the following to your `.bashrc` or some other profile initialization file:
+    eval "$(_COOKIECUTTER_PROJECT_UPGRADER_COMPLETE=source cookiecutter_project_upgrader)"
 
 For Zsh, please read the `Click documentation <https://click.palletsprojects.com/en/7.x/bashcomplete/#activation>`_.
 
