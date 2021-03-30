@@ -6,9 +6,9 @@ Cookiecutter Project Upgrader
 .. image:: https://img.shields.io/pypi/v/cookiecutter_project_upgrader.svg
   :target: https://pypi.python.org/pypi/cookiecutter_project_upgrader
 
-.. image:: https://travis-ci.org/thomasjahoda/cookiecutter_project_upgrader.svg?branch=master
-  :target: https://travis-ci.org/thomasjahoda/cookiecutter_project_upgrader
-  :alt: CI Status
+.. image:: https://github.com/thomasjahoda/cookiecutter_project_upgrader/actions/workflows/CI.yml/badge.svg?branch=master
+  :target: https://github.com/thomasjahoda/cookiecutter_project_upgrader/actions/workflows/CI.yml
+  :alt: CI Status - master
 
 .. image:: https://readthedocs.org/projects/cookiecutter-project-upgrader/badge/?version=latest
   :target: https://cookiecutter-project-upgrader.readthedocs.io/en/latest/?badge=latest
@@ -47,8 +47,8 @@ Options:
   -b, --branch TEXT               Default: cookiecutter-template
   -u, --upgrade-branch TEXT       Optional branch name of cookiecutter
                                   template to checkout before upgrading.
-                                  
-  -f, --zip-file TEXT             Zip file Path/URL for Cookiecutter templates.                                  
+
+  -f, --zip-file TEXT             Zip file Path/URL for Cookiecutter templates.
 
   -i, --interactive               Enter interactive mode. Default behaviour:
                                   skip questions, use defaults.
