@@ -24,10 +24,13 @@ from cookiecutter_project_upgrader.logic import update_project_template_branch
                    "default: ask if interactive, otherwise false.")
 @click.option('--exclude', '-e', type=str, multiple=True,
               help='Git pathspecs to exclude from the update commit, e.g. -e "*.py" -e "tests/".')
+@click.option('--base-ref', '-r',
+              help="Create --branch from this ref instead of the first commit of the repository.")
 def main(context_file: str, branch: str, upgrade_branch: Optional[str],
          zip_file: Optional[str], interactive: bool, merge_now: Optional[bool],
          push_template_branch_changes: Optional[bool],
-         exclude: Tuple[str, ...]):
+         exclude: Tuple[str, ...],
+         base_ref: Optional[str]):
     """Upgrade projects created from a Cookiecutter template"""
     context = _load_context(context_file)
     if zip_file is not None and _is_valid_file(zip_file):
@@ -41,7 +44,8 @@ def main(context_file: str, branch: str, upgrade_branch: Optional[str],
                                    merge_now,
                                    push_template_branch_changes,
                                    exclude,
-                                   interactive)
+                                   interactive,
+                                   base_ref)
 
 
 def _load_context(context_file: str):

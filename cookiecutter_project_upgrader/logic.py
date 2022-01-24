@@ -48,7 +48,8 @@ def _git_repository_has_local_changes(git_repository: Path):
 def update_project_template_branch(context: MutableMapping[str, str], project_directory: str, branch: str,
                                    upgrade_branch: Optional[str], merge_now: Optional[bool],
                                    push_template_branch_changes: Optional[bool],
-                                   exclude_pathspecs: Tuple[str, ...], interactive: bool):
+                                   exclude_pathspecs: Tuple[str, ...], interactive: bool,
+                                   base_ref: Optional[str]):
     """Update template branch from a template url"""
     template_url = context['_template']
     tmp_directory = os.path.join(project_directory, ".git", "cookiecutter")
@@ -66,13 +67,13 @@ def update_project_template_branch(context: MutableMapping[str, str], project_di
                            universal_newlines=True,
                            check=True)
         else:
-            click.echo(f"Creating git branch {branch} ")
-            firstref = subprocess.run(["git", "rev-list", "--max-parents=0", "--max-count=1", "HEAD"],
-                                      cwd=project_directory,
-                                      stdout=subprocess.PIPE,
-                                      universal_newlines=True,
-                                      check=True).stdout.strip()
-            subprocess.run(["git", "branch", branch, firstref], cwd=project_directory)
+            ref = base_ref or subprocess.run(["git", "rev-list", "--max-parents=0", "--max-count=1", "HEAD"],
+                                             cwd=project_directory,
+                                             stdout=subprocess.PIPE,
+                                             universal_newlines=True,
+                                             check=True).stdout.strip()
+            click.echo(f"Creating git branch {branch} from {ref}")
+            subprocess.run(["git", "branch", branch, ref], cwd=project_directory)
 
     with _TemporaryGitWorktreeDirectory(tmp_git_worktree_directory, repo=project_directory, branch=branch):
         # update the template
